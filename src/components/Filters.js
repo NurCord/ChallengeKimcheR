@@ -22,6 +22,11 @@ export default function Filters({filter}) {
                   <option value="North America">North America</option>
                   <option value="Antarctica">Antarctica</option>
                 </SelectFilters>
+                <SelectFilters name="select" onChange={(e) => handlrOnClick(e.target.value)}>
+                  <option disabled>Order</option>
+                  <option value="Az">Az</option>
+                  <option value="Za">Za</option>
+                </SelectFilters>
             </DivButtonFilters>
         </DivFilters>
   )

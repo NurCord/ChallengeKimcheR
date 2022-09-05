@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./components/Home";
@@ -6,29 +7,32 @@ import { useQuery } from '@apollo/client';
 import {DivApp, LoadingApp } from './StyleComponents'
 import continents from './components/continents'
 import GET_NAME_COUNTRIES from './components/querys'
+import { SortArrayDown, SortArrayUp } from "./components/Function";
 
 export default function App() {
   const {loading, error, data} = useQuery(GET_NAME_COUNTRIES)
   const [countrie, setCountrie] = useState(data)
   const [filter, setFilter] = useState(null)
-
+  let dataC = data?.countries
   useEffect(() => {
-    setCountrie(data?.countries)
+    setCountrie(dataC)
   }, [loading])
   
   useEffect(() => {
     if(continents[filter]){
-      let newData = data?.countries.filter(e => e.continent.name === filter)
+      let newData = dataC.filter(e => e.continent.name === filter)
       setCountrie(newData)
     }
-    if(filter === 'All') setCountrie(data?.countries)
+    if(filter === 'All') setCountrie(dataC)
+    if(filter === 'Az') setCountrie(dataC.slice().sort(SortArrayUp))
+    if(filter === 'Za') setCountrie(dataC.slice().sort(SortArrayDown))
   }, [filter])
 
   if(error) return <p>error</p>
 
   const getCountrie = (name) => {
-    if(data?.countries.length > 0){
-      setCountrie(data?.countries.filter(e => e.name.toLowerCase().split('').splice(0, name.length).join('') === name))
+    if(dataC.length > 0){
+      setCountrie(dataC.filter(e => e.name.toLowerCase().split('').splice(0, name.length).join('') === name))
     }
   }
 
