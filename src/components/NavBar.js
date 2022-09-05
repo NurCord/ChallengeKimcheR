@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {DivNavBar, H2NavBar, LogoNavBar, InputNavBar, DivNavBarSearch} from '../StyleComponents'
 import Filters from './Filters';
 import { UilSearchAlt } from '@iconscout/react-unicons';
