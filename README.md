@@ -48,3 +48,7 @@ $ npm start
     <a href="https://www.linkedin.com/in/nuria-candela-cordoba-a14135224/">LinkedIn</a>
   </li>
 </ul>
+
+"La tabla que contiene la información correspondiente a la asistencia diaria de un niño en un colegio tiene 90 millones de filas. Todas las tablas del sistema existen en la misma BDD en MySQL. La lógica del backend que actualiza la información correspondiente al pasar la asistencia tiene un tiempo de servicio p95 de 10 segundos. El equipo está interesado en bajar este tiempo para mejorar la experiencia del usuario (y porque nos gusta pensar en Kimche como un Ferrari). ¿Qué propondrías para enfrentar el problema? Esta pregunta es abierta, no hay respuestas malas. Puedes proponer arquitectura, tecnologías, diseño, etc."
+
+Primero lo que haría es usar el modelo relacional, en donde extraería los datos relevantes, cada tabla con su respectiva Primary key (la cual debe ser unica por cada fila), utilizaria campos con datos booleanos dependiendo la asistencia, utilizaria tablas como una de Usuario con sus datos y otra con el mes dia y año, las uniria en una tabla intermedia, en donde haría las peticiones lo mas exactas posibles para acortar el rango de busqueda y optimizar el tiempo. Tambien haría una limpieza cada año y solo dejaria un porcentaje del mismo.
