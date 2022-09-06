@@ -21,6 +21,7 @@ export default function NavBar({searchByName, filter}) {
                 key='nameCountrie' 
                 type='text' 
                 name='nameCountrie' 
+                autoComplete='off'
                 placeholder='Search...'
                 onChange={(e) => HandleOnChange(e.target.value)}
                 />
