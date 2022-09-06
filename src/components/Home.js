@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {DivContainCards, DivCard,CardCountinentImg, DivCardImage, InfoCardCountinent, DivInfoCard, DivIconCard, IconCard, InfoCard, ImageCard, LenguageCard, NameCard, Lenguage} from '../StyleComponents'
+import {DivContainCards, DivCard,CardCountinentImg, ContinentCard, DivCardImage, InfoCardCountinent, DivInfoCard, DivIconCard, IconCard, InfoCard, ImageCard, LenguageCard, NameCard, Lenguage} from '../StyleComponents'
 import backgound from '../assets/background.jpg'
 import { findFlagUrlByIso2Code } from "country-flags-svg";
 import continents from './continents'
@@ -39,7 +39,7 @@ export default function Home({data, filter}) {
                                 <InfoCard>Phone: +{e.phone}</InfoCard>
                             </div>
                             <div>
-                                <InfoCard>{e.continent.name}</InfoCard>
+                                <ContinentCard>{e.continent.name}</ContinentCard>
                                 <CardCountinentImg src={continents[e.continent.name]} alt='Not found'/>
                             </div>
                         </InfoCardCountinent>

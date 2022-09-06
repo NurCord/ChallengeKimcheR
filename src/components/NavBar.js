@@ -11,7 +11,11 @@ export default function NavBar({searchByName, filter}) {
   return (
     <>
     <DivNavBar>
-        <H2NavBar><LogoNavBar src={logo} alt='Not found'/></H2NavBar>
+      {
+        window.matchMedia("(min-width: 700px)").matches ? <H2NavBar><LogoNavBar src={logo} alt='Not found'/></H2NavBar>
+        : ''
+      }
+        
           <DivNavBarSearch>
             <InputNavBar 
                 key='nameCountrie' 
