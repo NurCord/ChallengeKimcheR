@@ -8,6 +8,16 @@ const theme = {
     black: '#0c0c0c',
 }
 
+const size = {
+    mobile: '700px',
+    tablet: '1040px',
+}
+
+const device = {
+    mobile: `(max-width: ${size.mobile})`,
+    tablet: `(max-width: ${size.tablet})`,
+};
+
 const extendsFilter = `
     :hover{
         cursor: pointer;
@@ -59,9 +69,12 @@ export const DivNavBar = styled.div`
     background: ${theme.greyDark};
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 2fr;
     width: 100%;
     height: 4rem;
+    grid-template-columns: 1fr 2fr;
+    @media ${device.mobile}{
+        grid-template-columns: 1fr;
+    }
 `
 
 export const H2NavBar = styled.h2`
@@ -78,11 +91,14 @@ export const LogoNavBar = styled.img`
 `
 
 export const InputNavBar = styled.input`
-    width: 25rem;
-    height: 2rem;
     border: 1px solid ${theme.black};
+    height: 2rem;
     border-radius: 0.5rem;
     padding-left: 2rem;
+    width: 25rem;
+    @media ${device.mobile}{
+        width: 100%;
+    }
 `
 
 export const DivNavBarSearch = styled.div`
@@ -99,32 +115,61 @@ export const DivFilters = styled.div`
     width: 100%;
     display: grid;
     align-items: center;
+    justify-items: center;
     grid-template-columns: 1fr 2fr;
+    @media ${device.mobile}{
+        grid-template-rows: 1fr 2fr;
+        grid-template-columns: 1fr;
+    }
 `
 
 export const ButtonFilters = styled.button`
     ${extendsFilter}
+    @media ${device.tablet}{
+        margin: 0rem 0.2rem;
+    }
 `
 export const SelectFilters = styled.select`
     ${extendsFilter}
+    @media ${device.tablet}{
+        margin: 0rem 0.2rem;
+    }
     padding-left: 1rem;
 `
 export const H2Filters = styled.h2`
+    color: ${theme.grey};
     font-size: larger;
     margin: 1rem 3rem;
-    color: ${theme.grey};
+    text-align: start;
+    @media ${device.mobile}{
+        font-size: medium;
+        margin: 0.2rem 1.5rem;
+        text-align: center;
+    }
 `
 
 export const DivButtonFilters = styled.div`
     display: flex;
+    @media ${device.mobile}{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
 `
 
 //Cards
 export const DivContainCards = styled.div`
     height: auto;
     width: 100%;
-    ${alignGrid}
     grid-template-columns: repeat(4, 1fr);
+    ${alignGrid}
+    @media ${device.tablet}{
+        grid-template-columns: 1fr 1fr;
+    }
+    @media ${device.mobile}{
+        grid-template-columns: 1fr;
+    }
 `
 
 export const DivCard = styled.div`
@@ -224,6 +269,14 @@ export const NameCard = styled.h2`
 `
 
 export const InfoCard = styled.p`
+    font-size: small;
+    margin: 0rem 0.4rem;
+    color: ${theme.greyLigth};
+    width: 9rem;
+    overflow: hidden;
+`
+
+export const ContinentCard = styled.p`
     font-size: small;
     margin: 0rem 1rem;
     color: ${theme.greyLigth};
