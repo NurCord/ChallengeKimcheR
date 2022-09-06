@@ -5,7 +5,7 @@ import { UilSearchAlt } from '@iconscout/react-unicons';
 import logo from '../assets/Logo.png';
 export default function NavBar({searchByName, filter}) {
     function HandleOnChange(name){
-        searchByName(name)
+        searchByName(name.toLowerCase())
     } 
 
   return (
