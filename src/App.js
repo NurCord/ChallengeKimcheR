@@ -24,8 +24,8 @@ export default function App() {
       setCountrie(newData)
     }
     if(filter === 'All') setCountrie(dataC)
-    if(filter === 'Az') setCountrie(dataC.slice().sort(SortArrayUp))
-    if(filter === 'Za') setCountrie(dataC.slice().sort(SortArrayDown))
+    if(filter === 'Az') setCountrie(countrie.slice().sort(SortArrayUp))
+    if(filter === 'Za') setCountrie(countrie.slice().sort(SortArrayDown))
   }, [filter])
 
   if(error) return <p>error</p>

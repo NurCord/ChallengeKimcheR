@@ -50,7 +50,7 @@ export const DivApp = styled.div`
     background: ${theme.white};
     font-family: serif;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 `
 
 export const LoadingApp = styled.div`
@@ -180,10 +180,7 @@ export const DivCard = styled.div`
     width: 18rem;
     ${alignGrid}
     grid-template-rows: 1fr 2fr;
-    :hover{
-        box-shadow: 10px 4px 20px;
-        transition: 0.3s;
-    }
+    box-shadow: 2px 2px 15px;
 `
 
 export const DivCardImage = styled.div`
